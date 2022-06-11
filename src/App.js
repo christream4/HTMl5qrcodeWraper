@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { useState } from "react";
+import HTML5Scanner from "./components/HTML5ScannerWraper";
+import { FaCamera, FaWindowClose } from 'react-icons/fa';
+const App = () => {
+  const [scannedCodes, setScannedCodes] = useState("");
+  const [isReadingComplete, setIsReadingComplete] = useState(false);
+  function onScanSuccess(decodedText, decodedResult) {
+    setScannedCodes(decodedText);
+  }
+
+  function onScanFailure(error) {
+    console.warn(`Code scan error = ${error}`);
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <span className="question">8. Scan the barcode</span>
+      <input className="barcode-result" type="text" value={scannedCodes} placeholder="No reading" />
+      <HTML5Scanner iconStart={<FaCamera />} iconStop={<FaWindowClose />} onScanFailure={onScanFailure} onScanSuccess={onScanSuccess} />
+    </>
   );
-}
+};
 
 export default App;

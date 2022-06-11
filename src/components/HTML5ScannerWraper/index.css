@@ -1,0 +1,44 @@
+
+.scannerStyle{
+    display:flex;
+    flex-direction:row;
+    padding:5px 20px;
+}
+.scannerStyle.layout-col{
+    flex-direction:column;
+}
+.scannerStyle #reader{
+    border:none!important;
+}
+.scannerStyle #reader__scan_region{
+    min-height:20px!important;
+    
+  }
+  
+  .scannerStyle #reader__camera_permission_button{
+    display:none;
+  }
+  
+  .scannerStyle #reader__dashboard{
+    display:none;
+  }
+  
+  .scannerStyle div img{
+    display:none;
+  }
+
+  .hide-btn{
+    display:none;
+  }
+
+  .scannerStyle svg{
+      font-size:35px;
+      color:blueviolet;
+  }
+  .barcode-result{
+      width:85%;
+      margin-left:20px;
+  }
+  .question{
+    margin:20px 20px 0px 20px;
+  }
